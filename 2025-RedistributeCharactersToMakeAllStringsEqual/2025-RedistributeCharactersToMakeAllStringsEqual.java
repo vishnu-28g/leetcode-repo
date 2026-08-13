@@ -1,0 +1,21 @@
+// Last updated: 13/08/2026, 09:10:34
+class Solution {
+    public boolean makeEqual(String[] words) {
+        int[] freq = new int[26];
+        for (String word : words) {
+            for (char ch : word.toCharArray()) {
+                freq[ch - 'a']++;
+            }
+        }
+
+        int n = words.length;
+
+        for (int count : freq) {
+            if (count % n != 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
